@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>TicTacToe</title>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class='main-container'>
+  <div class='choose-tag'>
+    <p> Would you like to be <br>
+      <span class='tag' id='tag-o'>O</span>
+      or
+      <span class='tag' id='tag-x'>X</span>
+      ?
+    </p>
+    <br><br>
+    <!-- <p> Difficulty level: </p> -->
+      <form>
+        <input id='input-easy' type="radio" name='difficulty' value='easy'>
+        <label for="input-easy">easy</label>
+        <input id='input-medium' type="radio" name='difficulty' value='medium' checked>
+        <label for="input-medium">medium</label>
+        <input id='input-impossible' type="radio" name='difficulty' value='impossible'>
+        <label for="input-impossible">impossible</label>
+      </form>
+  </div>
+  
+  <div class = 'scoreBoard hidden'> <!-- hidden -->
+    <div class='score-div'>   
+      <p class='score-header' id='player'>Player</p>
+      <p class='score' id='score-player'></p>
+    </div>
+    <div class='score-div'>   
+      <p class='score-header'>Games</p>
+      <p id='games-number'></p>
+    </div>
+    <div class='score-div'>   
+      <p class='score-header' id='computer'>Computer</p>
+      <p class='score' id='score-computer'></p>
+    </div>
+  </div>
+  <div class='board hidden'> <!-- hidden -->
+    <div class='gameBoard'>
+      
+        <div id = '0' class='boardField'></div>
+        <div id = '1' class='cell-middle boardField'></div>
+        <div id = '2' class='boardField'></div>
+        
+        <div id = '3' class='cell-center boardField'></div>
+        <div id = '4' class='cell-middle cell-center boardField'></div>
+        <div id = '5' class='cell-center boardField'></div>
+        
+        <div id = '6' class='boardField'></div>
+        <div id = '7' class='cell-middle boardField'></div>
+        <div id = '8' class='boardField'></div>
+    
+    </div>
+    <br><br><br><br>
+    <p><button id='reset'>Reset</button></p>
+  </div>
+</div> 
+<!-- main container -->
+  
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

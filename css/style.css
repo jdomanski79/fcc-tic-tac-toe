@@ -1,0 +1,159 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  /* background: linear-gradient(to top,black, white); */
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+.main-container{
+  max-width: 450px;
+  min-width: 250px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.choose-tag{
+   height: 50vh; 
+   /* width: 50vw;  */
+}
+
+.choose-tag p{
+  vertical-align: text-top; 
+  font-size: 36px;
+  /* float: left; */
+}
+input[type='radio']{
+  visibility: hidden;
+}
+
+label {
+  display: block;
+  text-align: center;
+  font-size: 36px;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+.tag{
+  font-weight: bold;
+  font-size: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: 1s;
+}
+
+.tag:hover,
+.tag-win,
+input[type='radio']:checked + label {
+  cursor: pointer;
+  text-shadow: 0px 0px 10px white;
+  color: yellow;
+  /* font-size: 80px; */
+}
+.tag-win {
+  animation: markGrow 2000ms;
+}
+@keyframes markGrow{
+  0% {color: black}
+  100% {font-size: yellow;}
+}
+
+.scoreBoard{
+  display: flex;
+  justify-content: space-around;
+  width: 450px;
+  padding-bottom: 5%;
+}
+div.score-div{
+  width: 30%;
+}
+p{
+  text-align: center;
+  font-size: 1.5em;
+}
+p.score-header{
+  font-weight: bold;
+  transition: 1000ms;
+}
+.score-header.active-player {
+  color: black;
+  text-shadow: 1px 1px 10px white;
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.gameBoard{
+  font-family: 'indie flower',cursive;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: stretch;
+  width: 450px;
+  height: 450px;
+}
+.boardField{
+  flex-basis: 33%;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 120px;
+  text-align: center;
+  height: 33%;
+  line-height: 1.2;
+}
+.animated { 
+  animation-name: tagPopup;
+  animation-duration: 200ms;
+}
+@keyframes tagPopup{
+  0% {font-size: 0px;}
+  100% {font-size: 150px;}
+}
+
+ .cell-middle{
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+.cell-center{
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.hidden, div.hidden{
+  display: none;
+}
+button{
+  cursor: pointer;
+  color: white;
+  background-color: black;
+}
+ 
+
+@media only screen and (max-width: 460px){
+  .gameBoard{
+    height: 300px;
+  }
+  .scoreBoard, .gameBoard{
+    width: 300px;
+  }
+  p{
+    font-size: 1.25em;
+  }
+   .boardField {
+     font-size: 80px;
+     line-height: 1.2;
+   }
+   @keyframes tagPopup{
+      0% { font-size: 0em;}
+      100% {font-size: 90px;}
+   }
+} 
