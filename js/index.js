@@ -1,18 +1,12 @@
 console.clear();
 (function() {
-  let fields = document.querySelectorAll(".boardField");
-  let computerScoreDOM = document.getElementById("score-computer");
-  let playerScoreDOM = document.getElementById("score-player");
-  let gamesNumberDOM = document.getElementById("games-number");
   let board = ["", "", "", "", "", "", "", "", ""];
   let numberOfGames = 0;
   let playerScore = 0;
   let computerScore = 0;
-  let computerStart = true;
-
-  // new variables
   let ui = {
-    squares: document.querySelectorAll(".boardField"),
+    board: document.querySelector(".gameBoard"),
+    squares: document.querySelectorAll('.boardField'),
     computerScore: document.getElementById("score-computer"),
     playerScore: document.getElementById("score-player"),
     computerScoreHeader: document.getElementById("computer"),
@@ -23,11 +17,6 @@ console.clear();
   let playerChance;
   let userMark = "O";
   let computerMark = "X";
-  let score = {
-    player: 0,
-    computer: 0,
-    games: 0
-  };
   let userTurn = true;
   const delay = 500;
   const blinkBordersDelay = 500;
@@ -37,9 +26,7 @@ console.clear();
   init();
 
   function init() {
-    for (let i = ui.squares.length; i--; ) {
-      fields[i].addEventListener("mousedown", selectSquare);
-    }
+    ui.board.addEventListener("mousedown", selectSquare);
     document.getElementById("tag-o").addEventListener("click", chooseMark);
     document.getElementById("tag-x").addEventListener("click", chooseMark);
     document.getElementById("reset").addEventListener("click", reset);
@@ -49,16 +36,16 @@ console.clear();
     updateTurn();
   }
 
-  function selectSquare() {
-    console.log(this.id);
+  function selectSquare(event) {
+    let id = event.target.id;
     if (bordersBlinking) return;
     if (!playing) {
       start();
       return;
     }
-    if (board[this.id] === "" && playing && userTurn) {
-      board[this.id] = userMark;
-      updateBoard(userTurn, this.id);
+    if (board[id] === "" && playing && userTurn) {
+      board[id] = userMark;
+      updateBoard(userTurn, id);
       changeTurn();
     }
   }
